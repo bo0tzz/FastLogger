@@ -2,6 +2,7 @@ from multiprocessing.dummy import Process
 from http.server import BaseHTTPRequestHandler
 from aiohttp import web
 from dateutil import parser
+import traceback
 
 import fastdotcom
 import time
@@ -78,5 +79,6 @@ if __name__ == '__main__':
 
             time.sleep(60 * sleep_min)
     except Exception as e:
-        print(e)
+        print("Exception occurred in main loop:")
+        traceback.print_exc()
         pass
